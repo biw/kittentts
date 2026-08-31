@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "oracle": "reference/python/kittentts/preprocess.py",
+  "corpus": "fixtures/text-parity-corpus.json",
+  "cases": [
+    {
+      "id": "abbreviations",
+      "text": "Dr. Rivera and Prof. Smith reviewed Fig. 2 on Jan. 5.",
+      "clean_text": true,
+      "cleaned_text": "dr. rivera and prof. smith reviewed fig. two on jan. five.",
+      "chunks": [
+        "dr. rivera and prof. smith reviewed fig. two on jan. five."
+      ]
+    },
+    {
+      "id": "currency",
+      "text": "$1,250.00, EUR 20, \u00a39.99, \u00a585K, and \u20b91.2M.",
+      "clean_text": true,
+      "cleaned_text": "one thousand two hundred fifty dollars, eur twenty nine pounds and ninety-nine cents, eighty-five thousand yens, and one point two million rupees.",
+      "chunks": [
+        "one thousand two hundred fifty dollars, eur twenty nine pounds and ninety-nine cents, eighty-five thousand yens, and one point two million rupees."
+      ]
+    },
+    {
+      "id": "percent-and-ordinals",
+      "text": "The 1st group gained -2.5%, the 22nd gained 10%, and the 103rd stayed flat.",
+      "clean_text": true,
+      "cleaned_text": "the first group gained negative two point five percent, the twenty-second gained ten percent, and the one hundred third stayed flat.",
+      "chunks": [
+        "the first group gained negative two point five percent, the twenty-second gained ten percent, and the one hundred third stayed flat."
+      ]
+    },
+    {
+      "id": "times",
+      "text": "Meet at 12:00pm, retry at 9:05 AM, and stop at 23:59:30.",
+      "clean_text": true,
+      "cleaned_text": "meet at twelve pm, retry at nine oh five am, and stop at twenty-three fifty-nine.",
+      "chunks": [
+        "meet at twelve pm, retry at nine oh five am, and stop at twenty-three fifty-nine."
+      ]
+    },
+    {
+      "id": "scientific-units",
+      "text": "The 6.022E23 sample measured 2.5kg at 3GHz for 25ms.",
+      "clean_text": true,
+      "cleaned_text": "the six point zero two two times ten to the twenty-three sample measured two point five kilograms at three gigahertz for twenty-five milliseconds.",
+      "chunks": [
+        "the six point zero two two times ten to the twenty-three sample measured two point five kilograms at three gigahertz for twenty-five milliseconds."
+      ]
+    },
+    {
+      "id": "fractions",
+      "text": "Use 1/2, 3/4, 2/3, 7/8, and leave 1/0 unchanged.",
+      "clean_text": true,
+      "cleaned_text": "use one half, three quarters, two thirds, seven eighths, and leave one/zero unchanged.",
+      "chunks": [
+        "use one half, three quarters, two thirds, seven eighths, and leave one/zero unchanged."
+      ]
+    },
+    {
+      "id": "ranges-and-versions",
+      "text": "Python-3.12 supports versions 1.2.3 across pages 31-35.",
+      "clean_text": true,
+      "cleaned_text": "python three point one two supports versions one point two.three across pages thirty-one to thirty-five.",
+      "chunks": [
+        "python three point one two supports versions one point two.three across pages thirty-one to thirty-five."
+      ]
+    },
+    {
+      "id": "phones-and-ip",
+      "text": "Call 1-800-555-0199 or 555-0198 from 192.168.0.1.",
+      "clean_text": true,
+      "cleaned_text": "call one eight zero zero five five five zero one nine nine or five five five zero one nine eight from one nine two dot one six eight dot zero dot one.",
+      "chunks": [
+        "call one eight zero zero five five five zero one nine nine or five five five zero one nine eight from one nine two dot one six eight dot zero dot one."
+      ]
+    },
+    {
+      "id": "decades",
+      "text": "Music from the 80s, 1990s, and 2020s changed quickly.",
+      "clean_text": true,
+      "cleaned_text": "music from the eighties, nineteen nineties, and twenty twenties changed quickly.",
+      "chunks": [
+        "music from the eighties, nineteen nineties, and twenty twenties changed quickly."
+      ]
+    },
+    {
+      "id": "contractions",
+      "text": "I can't, won't, and shouldn't say it's impossible; let's try.",
+      "clean_text": true,
+      "cleaned_text": "i cannot, will not, and should not say it is impossible; let us try.",
+      "chunks": [
+        "i cannot, will not, and should not say it is impossible; let us try."
+      ]
+    },
+    {
+      "id": "leading-decimals",
+      "text": ".5 plus -.25 equals .25.",
+      "clean_text": true,
+      "cleaned_text": "zero point five plus negative zero point two five equals zero point two five.",
+      "chunks": [
+        "zero point five plus negative zero point two five equals zero point two five."
+      ]
+    },
+    {
+      "id": "scale-suffixes",
+      "text": "The service handled 1.5K requests, 340M tokens, and 2B events.",
+      "clean_text": true,
+      "cleaned_text": "the service handled one point five thousand requests, three hundred forty million tokens, and two billion events.",
+      "chunks": [
+        "the service handled one point five thousand requests, three hundred forty million tokens, and two billion events."
+      ]
+    },
+    {
+      "id": "html-url-email",
+      "text": "<p>Email hello@example.com or visit https://example.com/a?q=1.</p>",
+      "clean_text": true,
+      "cleaned_text": "email or visit",
+      "chunks": [
+        "email or visit,"
+      ]
+    },
+    {
+      "id": "unicode-composition",
+      "text": "Cafe\u0301, nai\u0308ve, and coo\u0308perate.",
+      "clean_text": true,
+      "cleaned_text": "caf\u00e9, na\u00efve, and co\u00f6perate.",
+      "chunks": [
+        "caf\u00e9, na\u00efve, and co\u00f6perate."
+      ]
+    },
+    {
+      "id": "smart-punctuation",
+      "text": "\u201cWait\u2014really?\u201d She paused\u2026 then answered.",
+      "clean_text": true,
+      "cleaned_text": "\u201cwait\u2014really?\u201d she paused\u2026 then answered.",
+      "chunks": [
+        "\u201cwait\u2014really?\u201d she paused\u2026 then answered."
+      ]
+    },
+    {
+      "id": "emoji",
+      "text": "Hello \ud83d\udc4b world \ud83c\udf0d! Family: \ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66.",
+      "clean_text": true,
+      "cleaned_text": "hello \ud83d\udc4b world \ud83c\udf0d! family: \ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66.",
+      "chunks": [
+        "hello \ud83d\udc4b world \ud83c\udf0d!",
+        "family: \ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66."
+      ]
+    },
+    {
+      "id": "latin-diacritics",
+      "text": "Caf\u00e9 d\u00e9j\u00e0 vu in S\u00e3o Paulo; a na\u00efve fa\u00e7ade.",
+      "clean_text": true,
+      "cleaned_text": "caf\u00e9 d\u00e9j\u00e0 vu in s\u00e3o paulo; a na\u00efve fa\u00e7ade.",
+      "chunks": [
+        "caf\u00e9 d\u00e9j\u00e0 vu in s\u00e3o paulo; a na\u00efve fa\u00e7ade."
+      ]
+    },
+    {
+      "id": "greek",
+      "text": "\u039a\u03b1\u03bb\u03b7\u03bc\u03ad\u03c1\u03b1 \u03ba\u03cc\u03c3\u03bc\u03b5. Version 2.4.",
+      "clean_text": true,
+      "cleaned_text": "\u03ba\u03b1\u03bb\u03b7\u03bc\u03ad\u03c1\u03b1 \u03ba\u03cc\u03c3\u03bc\u03b5. version two point four.",
+      "chunks": [
+        "\u03ba\u03b1\u03bb\u03b7\u03bc\u03ad\u03c1\u03b1 \u03ba\u03cc\u03c3\u03bc\u03b5.",
+        "version two point four."
+      ]
+    },
+    {
+      "id": "cyrillic",
+      "text": "\u041f\u0440\u0438\u0432\u0435\u0442, \u043c\u0438\u0440! 2026.",
+      "clean_text": true,
+      "cleaned_text": "\u043f\u0440\u0438\u0432\u0435\u0442, \u043c\u0438\u0440! two thousand twenty-six.",
+      "chunks": [
+        "\u043f\u0440\u0438\u0432\u0435\u0442, \u043c\u0438\u0440!",
+        "two thousand twenty-six."
+      ]
+    },
+    {
+      "id": "arabic",
+      "text": "\u0645\u0631\u062d\u0628\u0627 \u0628\u0627\u0644\u0639\u0627\u0644\u0645. 42.",
+      "clean_text": true,
+      "cleaned_text": "\u0645\u0631\u062d\u0628\u0627 \u0628\u0627\u0644\u0639\u0627\u0644\u0645. forty-two.",
+      "chunks": [
+        "\u0645\u0631\u062d\u0628\u0627 \u0628\u0627\u0644\u0639\u0627\u0644\u0645.",
+        "forty-two."
+      ]
+    },
+    {
+      "id": "devanagari",
+      "text": "\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e\u0964 12.",
+      "clean_text": true,
+      "cleaned_text": "\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e\u0964 twelve.",
+      "chunks": [
+        "\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e\u0964 twelve."
+      ]
+    },
+    {
+      "id": "japanese",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\u3002 3.14.",
+      "clean_text": true,
+      "cleaned_text": "\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\u3002 three point one four.",
+      "chunks": [
+        "\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\u3002 three point one four."
+      ]
+    },
+    {
+      "id": "chinese",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\u3002 100%.",
+      "clean_text": true,
+      "cleaned_text": "\u4f60\u597d\uff0c\u4e16\u754c\u3002 one hundred percent.",
+      "chunks": [
+        "\u4f60\u597d\uff0c\u4e16\u754c\u3002 one hundred percent."
+      ]
+    },
+    {
+      "id": "korean",
+      "text": "\uc548\ub155\ud558\uc138\uc694 \uc138\uacc4. 5km.",
+      "clean_text": true,
+      "cleaned_text": "\uc548\ub155\ud558\uc138\uc694 \uc138\uacc4. five kilometers.",
+      "chunks": [
+        "\uc548\ub155\ud558\uc138\uc694 \uc138\uacc4.",
+        "five kilometers."
+      ]
+    },
+    {
+      "id": "whitespace",
+      "text": "  Multiple\\tspaces\\nlines\\r\\nremain   ordered.  ",
+      "clean_text": true,
+      "cleaned_text": "multiple\\tspaces\\nlines\\r\\nremain ordered.",
+      "chunks": [
+        "multiple\\tspaces\\nlines\\r\\nremain ordered."
+      ]
+    },
+    {
+      "id": "abbreviation-boundaries",
+      "text": "Dr. Smith arrived at 3.14 p.m. Tomorrow starts at 8:00 a.m.",
+      "clean_text": false,
+      "cleaned_text": "Dr. Smith arrived at 3.14 p.m. Tomorrow starts at 8:00 a.m.",
+      "chunks": [
+        "Dr. Smith arrived at 3.14 p.m.",
+        "Tomorrow starts at 8:00 a.m."
+      ]
+    },
+    {
+      "id": "embedded-abbreviation",
+      "text": "Email before ten thirtya.m. tomorrow.",
+      "clean_text": false,
+      "cleaned_text": "Email before ten thirtya.m. tomorrow.",
+      "chunks": [
+        "Email before ten thirtya.m.",
+        "tomorrow."
+      ]
+    },
+    {
+      "id": "many-sentences",
+      "text": "One. Two! Three? Four. Five! Six? Seven. Eight! Nine? Ten.",
+      "clean_text": false,
+      "cleaned_text": "One. Two! Three? Four. Five! Six? Seven. Eight! Nine? Ten.",
+      "chunks": [
+        "One.",
+        "Two!",
+        "Three?",
+        "Four.",
+        "Five!",
+        "Six?",
+        "Seven.",
+        "Eight!",
+        "Nine?",
+        "Ten."
+      ]
+    },
+    {
+      "id": "long-form",
+      "text": "This paragraph intentionally contains enough words to cross a conservative test boundary while preserving every phrase in order and ensuring that sentence-aware splitting remains deterministic even when several clauses, commas, numbers like 123, and abbreviations such as Dr. appear together. A second sentence verifies that the next boundary remains independent.",
+      "clean_text": true,
+      "cleaned_text": "this paragraph intentionally contains enough words to cross a conservative test boundary while preserving every phrase in order and ensuring that sentence-aware splitting remains deterministic even when several clauses, commas, numbers like one hundred twenty-three and abbreviations such as dr. appear together. a second sentence verifies that the next boundary remains independent.",
+      "chunks": [
+        "this paragraph intentionally contains enough words to cross a conservative test boundary while preserving every phrase in order and ensuring that sentence-aware splitting remains deterministic even when several clauses, commas, numbers like one hundred twenty-three and abbreviations such as dr. appear together.",
+        "a second sentence verifies that the next boundary remains independent."
+      ]
+    },
+    {
+      "id": "no-terminal-punctuation",
+      "text": "A final clause without terminal punctuation",
+      "clean_text": false,
+      "cleaned_text": "A final clause without terminal punctuation",
+      "chunks": [
+        "A final clause without terminal punctuation,"
+      ]
+    },
+    {
+      "id": "punctuation-only",
+      "text": "... !!! ???",
+      "clean_text": false,
+      "cleaned_text": "... !!! ???",
+      "chunks": [
+        "...",
+        "!!!",
+        "???"
+      ]
+    },
+    {
+      "id": "mixed-identifiers",
+      "text": "Build XT-2.5, IPv6, SHA-256, and v1.4.2 passed.",
+      "clean_text": true,
+      "cleaned_text": "build xt two point five, ipv6, sha two hundred fifty-six and v1.four point two passed.",
+      "chunks": [
+        "build xt two point five, ipv6, sha two hundred fifty-six and v1.four point two passed."
+      ]
+    },
+    {
+      "id": "zero-values",
+      "text": "$0.00, 0%, 0kg, 0/2, and 00:00.",
+      "clean_text": true,
+      "cleaned_text": "zero dollars, zero percent, zero kilograms, zero halves, and zero hundred.",
+      "chunks": [
+        "zero dollars, zero percent, zero kilograms, zero halves, and zero hundred."
+      ]
+    },
+    {
+      "id": "large-supported-number",
+      "text": "999,999,999,999 items remain.",
+      "clean_text": true,
+      "cleaned_text": "nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine items remain.",
+      "chunks": [
+        "nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine items remain."
+      ]
+    },
+    {
+      "id": "raw-unicode",
+      "text": "\u00c9l\u00e8ve \ud83d\udc4b \u4e16\u754c.",
+      "clean_text": false,
+      "cleaned_text": "\u00c9l\u00e8ve \ud83d\udc4b \u4e16\u754c.",
+      "chunks": [
+        "\u00c9l\u00e8ve \ud83d\udc4b \u4e16\u754c."
+      ]
+    }
+  ]
+}

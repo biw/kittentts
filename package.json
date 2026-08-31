@@ -1,0 +1,147 @@
+{
+  "name": "@biwills/kittentts",
+  "version": "1.0.0",
+  "description": "Python-free KittenTTS SDK for Node.js, browsers, and React Native",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./dist/browser/worker.js"
+  ],
+  "types": "./dist/sdk/index.d.ts",
+  "homepage": "https://github.com/biw/kittentts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biw/kittentts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/biw/kittentts/issues"
+  },
+  "packageManager": "pnpm@11.16.0",
+  "overrides": {
+    "adm-zip": "0.6.0",
+    "protobufjs": "7.6.5"
+  },
+  "keywords": [
+    "tts",
+    "text-to-speech",
+    "onnx",
+    "node",
+    "browser",
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "exports": {
+    ".": {
+      "browser": {
+        "types": "./dist/sdk/browser-entry.d.ts",
+        "import": "./dist/sdk/browser-entry.js"
+      },
+      "react-native": {
+        "types": "./dist/sdk/react-native-entry.d.ts",
+        "import": "./dist/sdk/react-native-entry.js"
+      },
+      "node": {
+        "types": "./dist/sdk/node-entry.d.ts",
+        "import": "./dist/sdk/node-entry.js"
+      },
+      "types": "./dist/sdk/index.d.ts",
+      "import": "./dist/sdk/node-entry.js"
+    },
+    "./package.json": "./package.json",
+    "./audio": {
+      "types": "./dist/audio/index.d.ts",
+      "import": "./dist/audio/index.js"
+    },
+    "./audio/mp3": {
+      "types": "./dist/audio/mp3.d.ts",
+      "import": "./dist/audio/mp3.js"
+    },
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "import": "./dist/node/index.js"
+    },
+    "./browser": {
+      "types": "./dist/browser/index.d.ts",
+      "import": "./dist/browser/index.js"
+    },
+    "./browser/worker": {
+      "types": "./dist/browser/worker.d.ts",
+      "import": "./dist/browser/worker.js"
+    },
+    "./react-native": {
+      "browser": {
+        "types": "./dist/sdk/react-native-web-entry.d.ts",
+        "import": "./dist/sdk/react-native-web-entry.js"
+      },
+      "react-native": {
+        "types": "./dist/sdk/react-native-entry.d.ts",
+        "import": "./dist/sdk/react-native-entry.js"
+      },
+      "types": "./dist/sdk/react-native-entry.d.ts",
+      "import": "./dist/sdk/react-native-entry.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "prepublish": "pnpm build",
+    "test": "vitest run",
+    "test:firefox": "KITTENTTS_FIREFOX=1 vitest run tests-js/firefox.integration.test.ts",
+    "test:safari": "KITTENTTS_SAFARI=1 vitest run tests-js/safari.integration.test.ts",
+    "test:safari:webgpu": "KITTENTTS_SAFARI=1 KITTENTTS_SAFARI_WEBGPU=1 vitest run tests-js/safari.integration.test.ts",
+    "test:react-native": "vitest run tests-js/react-native.test.ts",
+    "test:watch": "vitest",
+    "example:node": "pnpm build && node examples/node-synthesize.mjs",
+    "fixtures:bootstrap": "tsx scripts/bootstrap_reference_fixtures.ts",
+    "samples:generate": "tsx scripts/generate_listening_samples.ts .context/listening-samples",
+    "serve:browser-harness": "node scripts/serve_fixture_harness.mjs",
+    "native:smoke:assets": "tsx scripts/bootstrap_react_native_smoke_assets.ts",
+    "native:smoke:prepare": "pnpm build && node scripts/prepare_react_native_smoke.mjs",
+    "native:smoke:serve": "node scripts/serve_react_native_smoke_assets.mjs"
+  },
+  "peerDependencies": {
+    "@dr.pogodin/react-native-fs": "2.40.1",
+    "onnxruntime-node": "1.27.0",
+    "onnxruntime-react-native": "1.24.3",
+    "onnxruntime-web": "1.27.0"
+  },
+  "peerDependenciesMeta": {
+    "@dr.pogodin/react-native-fs": {
+      "optional": true
+    },
+    "onnxruntime-node": {
+      "optional": true
+    },
+    "onnxruntime-react-native": {
+      "optional": true
+    },
+    "onnxruntime-web": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@types/node": "^24.13.3",
+    "fflate": "^0.8.3",
+    "onnxruntime-node": "1.27.0",
+    "onnxruntime-web": "1.27.0",
+    "phonemizer": "^1.2.1",
+    "publint": "^0.3.21",
+    "tsdown": "^0.22.13",
+    "tsx": "^4.23.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10",
+    "wasm-media-encoders": "0.7.0"
+  }
+}

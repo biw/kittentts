@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KittenTTS Browser Example</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+        background: #f6f1e8;
+        color: #201c17;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(200, 118, 44, 0.16), transparent 34%),
+          linear-gradient(180deg, #f7f1e7 0%, #efe4d1 100%);
+      }
+
+      main {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 48px 20px 80px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 0.95;
+      }
+
+      p {
+        margin: 0 0 16px;
+        max-width: 60ch;
+      }
+
+      .panel {
+        margin-top: 28px;
+        padding: 20px;
+        border: 1px solid rgba(32, 28, 23, 0.12);
+        border-radius: 18px;
+        background: rgba(255, 250, 242, 0.9);
+        box-shadow: 0 16px 40px rgba(64, 44, 22, 0.08);
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      @media (min-width: 760px) {
+        .grid {
+          grid-template-columns: 1.6fr 0.7fr 0.7fr;
+        }
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        font-size: 0.95rem;
+      }
+
+      textarea,
+      select,
+      input,
+      button {
+        font: inherit;
+      }
+
+      textarea,
+      select,
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(32, 28, 23, 0.18);
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      textarea {
+        min-height: 148px;
+        resize: vertical;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      button,
+      .download-link {
+        border: none;
+        border-radius: 999px;
+        padding: 12px 18px;
+        background: #8f3e16;
+        color: #fff8f0;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      button[disabled] {
+        opacity: 0.6;
+        cursor: wait;
+      }
+
+      .download-link[hidden] {
+        display: none;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(143, 62, 22, 0.12);
+        color: #6e2f11;
+        font-size: 0.92rem;
+      }
+
+      pre {
+        margin: 16px 0 0;
+        padding: 14px;
+        border-radius: 12px;
+        background: rgba(43, 31, 23, 0.92);
+        color: #f9f1e6;
+        overflow: auto;
+        font-size: 0.86rem;
+      }
+
+      audio {
+        width: 100%;
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>KittenTTS Browser Runtime</h1>
+      <p>
+        This page uses the built browser runtime and shared WAV helper from <code>dist/</code>,
+        not the fixture harness modules. It defaults to the reference assets already generated in
+        <code>.context/reference-fixtures</code>.
+      </p>
+
+      <section class="panel">
+        <form id="synthesis-form">
+          <div class="grid">
+            <label>
+              Text
+              <textarea id="text-input" name="text">Kitten TTS browser example.</textarea>
+            </label>
+
+            <label>
+              Voice
+              <select id="voice-input" name="voice">
+                <option>Bella</option>
+                <option>Jasper</option>
+                <option>Luna</option>
+                <option selected>Bruno</option>
+                <option>Rosie</option>
+                <option>Hugo</option>
+                <option>Kiki</option>
+                <option>Leo</option>
+              </select>
+            </label>
+
+            <label>
+              Speed
+              <input id="speed-input" name="speed" type="number" min="0.5" max="2" step="0.1" value="1" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="synthesize-button" type="submit">Synthesize</button>
+            <span class="status" id="status-chip">idle</span>
+            <a class="download-link" id="download-link" hidden download="browser-example.wav">Download WAV</a>
+          </div>
+        </form>
+
+        <audio id="audio-player" controls></audio>
+        <pre id="result-json">{
+  "status": "idle"
+}</pre>
+      </section>
+    </main>
+
+    <script type="module" src="/examples/browser-basic.mjs"></script>
+  </body>
+</html>

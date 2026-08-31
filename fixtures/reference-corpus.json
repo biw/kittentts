@@ -1,0 +1,98 @@
+{
+  "model": "KittenML/kitten-tts-nano-0.8",
+  "revision": "7a1db645b1f3ab9420761d87428e042b9cec3f26",
+  "sample_rate": 24000,
+  "cases": [
+    {
+      "id": "basic-bruno",
+      "text": "One day, a little girl named Lily found a needle in her room.",
+      "voice": "Bruno",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "numbers-luna",
+      "text": "Flight 203 leaves at 3:45 PM and the ticket costs $129.50.",
+      "voice": "Luna",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "punctuation-bella",
+      "text": "Wait... really? Yes! No, maybe; actually, let's test punctuation.",
+      "voice": "Bella",
+      "speed": 0.95,
+      "clean_text": false
+    },
+    {
+      "id": "urls-jasper",
+      "text": "Email support@example.com or visit https://kittenml.com before 10:30 a.m. tomorrow.",
+      "voice": "Jasper",
+      "speed": 1.05,
+      "clean_text": true
+    },
+    {
+      "id": "chunking-hugo",
+      "text": "The village market opened before sunrise, and every stall seemed to wake up at once. Bakers stacked warm bread in neat rows, farmers laid out bright fruit, and children wove through the crowd with impossible speed. By the time the church bell rang, the square was already loud with stories, laughter, and bargaining voices that bounced between the stone walls like birds in a narrow canyon.",
+      "voice": "Hugo",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "ordinals-percent-rosie",
+      "text": "On the 21st attempt, Rosie completed 87.5% of the course and finished 3rd.",
+      "voice": "Rosie",
+      "speed": 0.9,
+      "clean_text": true
+    },
+    {
+      "id": "units-science-kiki",
+      "text": "The 2.5 kg parcel traveled 12 km at 1.2e3 Hz while the sensor read 23°C.",
+      "voice": "Kiki",
+      "speed": 1.1,
+      "clean_text": true
+    },
+    {
+      "id": "fractions-ranges-leo",
+      "text": "Mix 3/4 cup of water, wait 5-7 minutes, and serve 2 portions.",
+      "voice": "Leo",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "unicode-quotes-bella",
+      "text": "“Café déjà vu,” she whispered—then added, “naïve? Never…”",
+      "voice": "Bella",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "markup-social-jasper",
+      "text": "<b>Alert</b>: ask @support about #KittenTTS before noon.",
+      "voice": "Jasper",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "versions-decades-bruno",
+      "text": "Model XT-2.5 recalls the 1990s, chapters IV and IX, and build 1.4.2.",
+      "voice": "Bruno",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "currency-negative-luna",
+      "text": "The balance changed from -$45.75 to €1.2K after a 6% fee.",
+      "voice": "Luna",
+      "speed": 1.0,
+      "clean_text": true
+    },
+    {
+      "id": "unpunctuated-long-rosie",
+      "text": "This deliberately long sentence has no terminal punctuation and keeps adding descriptive words so the chunker must choose safe word boundaries without losing text or changing the order of any phrase while synthesis continues across multiple segments for a realistic long form request",
+      "voice": "Rosie",
+      "speed": 1.0,
+      "clean_text": true
+    }
+  ]
+}

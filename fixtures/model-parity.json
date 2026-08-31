@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 2,
+  "source": "reference/python with onnxruntime",
+  "corpus": "fixtures/model-parity-corpus.json",
+  "models": [
+    {
+      "id": "nano",
+      "repoId": "KittenML/kitten-tts-nano-0.8-fp32",
+      "revision": "7a1db645b1f3ab9420761d87428e042b9cec3f26",
+      "cases": [
+        {
+          "id": "basic",
+          "inputIdsSha256": "d94af9f4321d30b6c5e10381f1071a9342b3cbc4b3e2a746e85708e19a2bbd0b",
+          "styleSha256": "596f10a56f38f82df5eb02b7623496e5c7bb4b1dde58585dd0a49cfbe405c553",
+          "audio": {
+            "numSamples": 116200,
+            "min": -0.43061694502830505,
+            "max": 0.7380911111831665,
+            "mean": 0.028612466529011726,
+            "std": 0.0919802188873291,
+            "rms": 0.09632773697376251,
+            "nodeSampleTolerance": 0,
+            "browserSampleTolerance": 0
+          }
+        },
+        {
+          "id": "numbers",
+          "inputIdsSha256": "2d44ec9e001a30f37c70639875ed1f672ebf68a12e2827d9ce36332713918551",
+          "styleSha256": "1be50d42084f4aacf817a81dbdbd934b04c20a9741207eca8a9835a3d0536975",
+          "audio": {
+            "numSamples": 140800,
+            "min": -0.43837612867355347,
+            "max": 1.1889238357543945,
+            "mean": 0.04981603845953941,
+            "std": 0.12072620540857315,
+            "rms": 0.13060036301612854,
+            "nodeSampleTolerance": 0,
+            "browserSampleTolerance": 0
+          }
+        },
+        {
+          "id": "punctuation",
+          "inputIdsSha256": "1eac9367e2cad08adc5c805cefd5cace62bd6d08e15d236dd3e85c7b0924be1c",
+          "styleSha256": "def93639379a38a9128a2d10bf9a8a4e18abdc78a94ce8a7f1fae953281dd041",
+          "audio": {
+            "numSamples": 60400,
+            "min": -0.40558403730392456,
+            "max": 0.6934174299240112,
+            "mean": 0.029777321964502335,
+            "std": 0.09375447779893875,
+            "rms": 0.09836966544389725,
+            "nodeSampleTolerance": 0,
+            "browserSampleTolerance": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "nano-int8",
+      "repoId": "KittenML/kitten-tts-nano-0.8-int8",
+      "revision": "84781d74e29ee25217551556398b42f80593a813",
+      "cases": [
+        {
+          "id": "basic",
+          "inputIdsSha256": "d94af9f4321d30b6c5e10381f1071a9342b3cbc4b3e2a746e85708e19a2bbd0b",
+          "styleSha256": "596f10a56f38f82df5eb02b7623496e5c7bb4b1dde58585dd0a49cfbe405c553",
+          "audio": {
+            "numSamples": 115600,
+            "min": -0.41248562932014465,
+            "max": 0.7228577733039856,
+            "mean": 0.028136422857642174,
+            "std": 0.08906278759241104,
+            "rms": 0.0934014841914177,
+            "nodeSampleTolerance": 600,
+            "browserSampleTolerance": 600
+          }
+        },
+        {
+          "id": "numbers",
+          "inputIdsSha256": "2d44ec9e001a30f37c70639875ed1f672ebf68a12e2827d9ce36332713918551",
+          "styleSha256": "1be50d42084f4aacf817a81dbdbd934b04c20a9741207eca8a9835a3d0536975",
+          "audio": {
+            "numSamples": 140800,
+            "min": -0.4161944091320038,
+            "max": 1.0901060104370117,
+            "mean": 0.04914293810725212,
+            "std": 0.11452631652355194,
+            "rms": 0.12462465465068817,
+            "nodeSampleTolerance": 600,
+            "browserSampleTolerance": 600
+          }
+        },
+        {
+          "id": "punctuation",
+          "inputIdsSha256": "1eac9367e2cad08adc5c805cefd5cace62bd6d08e15d236dd3e85c7b0924be1c",
+          "styleSha256": "def93639379a38a9128a2d10bf9a8a4e18abdc78a94ce8a7f1fae953281dd041",
+          "audio": {
+            "numSamples": 60400,
+            "min": -0.3862842917442322,
+            "max": 0.6778199076652527,
+            "mean": 0.02931864559650421,
+            "std": 0.0901246964931488,
+            "rms": 0.09477364271879196,
+            "nodeSampleTolerance": 600,
+            "browserSampleTolerance": 600
+          }
+        }
+      ]
+    },
+    {
+      "id": "micro",
+      "repoId": "KittenML/kitten-tts-micro-0.8",
+      "revision": "1ccf72b2c2048fd17efac7de2fab32d10e225084",
+      "cases": [
+        {
+          "id": "basic",
+          "inputIdsSha256": "d94af9f4321d30b6c5e10381f1071a9342b3cbc4b3e2a746e85708e19a2bbd0b",
+          "styleSha256": "0648ef0f11ad53b882fbb6ec54d7d9899ec66fa84cada7549dce96093e1c3091",
+          "audio": {
+            "numSamples": 98800,
+            "min": -0.4688119888305664,
+            "max": 0.9439985752105713,
+            "mean": 0.02923549897968769,
+            "std": 0.10556872934103012,
+            "rms": 0.10954210162162781,
+            "nodeSampleTolerance": 3000,
+            "browserSampleTolerance": 3000
+          }
+        },
+        {
+          "id": "numbers",
+          "inputIdsSha256": "2d44ec9e001a30f37c70639875ed1f672ebf68a12e2827d9ce36332713918551",
+          "styleSha256": "a75830321cb5c0f204477f7314b51d3d36ca15d2fb9c832f1ea24bd7d1f4bef7",
+          "audio": {
+            "numSamples": 136000,
+            "min": -0.48396143317222595,
+            "max": 1.0667970180511475,
+            "mean": 0.044111549854278564,
+            "std": 0.1196073368191719,
+            "rms": 0.1274823248386383,
+            "nodeSampleTolerance": 3000,
+            "browserSampleTolerance": 3000
+          }
+        },
+        {
+          "id": "punctuation",
+          "inputIdsSha256": "1eac9367e2cad08adc5c805cefd5cace62bd6d08e15d236dd3e85c7b0924be1c",
+          "styleSha256": "9913872d4a35fa77fefac0877d9080274779cba3d5443e0b524282c2ffe780bb",
+          "audio": {
+            "numSamples": 67600,
+            "min": -0.4703609347343445,
+            "max": 0.8128520250320435,
+            "mean": 0.024045569822192192,
+            "std": 0.09485530108213425,
+            "rms": 0.0978555977344513,
+            "nodeSampleTolerance": 3000,
+            "browserSampleTolerance": 3000
+          }
+        }
+      ]
+    },
+    {
+      "id": "mini",
+      "repoId": "KittenML/kitten-tts-mini-0.8",
+      "revision": "c02725660cea441db4c383af69f1f26f5cd00947",
+      "cases": [
+        {
+          "id": "basic",
+          "inputIdsSha256": "d94af9f4321d30b6c5e10381f1071a9342b3cbc4b3e2a746e85708e19a2bbd0b",
+          "styleSha256": "d30cb5a0b58c42448c91f13e5a522065c1a2c5a6a65e9adbaf552a08b84e60a1",
+          "audio": {
+            "numSamples": 86800,
+            "min": -0.4339215159416199,
+            "max": 0.8132895231246948,
+            "mean": 0.02842131070792675,
+            "std": 0.0952908843755722,
+            "rms": 0.09943903982639313,
+            "nodeSampleTolerance": 18000,
+            "browserSampleTolerance": 18000
+          }
+        },
+        {
+          "id": "numbers",
+          "inputIdsSha256": "2d44ec9e001a30f37c70639875ed1f672ebf68a12e2827d9ce36332713918551",
+          "styleSha256": "c311457494b611d29d21cfae9cc60228c61bb0deca21dd7a6716301e01ec3362",
+          "audio": {
+            "numSamples": 116800,
+            "min": -0.5005887150764465,
+            "max": 0.991110622882843,
+            "mean": 0.04229388386011124,
+            "std": 0.10641410201787949,
+            "rms": 0.11451084166765213,
+            "nodeSampleTolerance": 18000,
+            "browserSampleTolerance": 18000
+          }
+        },
+        {
+          "id": "punctuation",
+          "inputIdsSha256": "1eac9367e2cad08adc5c805cefd5cace62bd6d08e15d236dd3e85c7b0924be1c",
+          "styleSha256": "2216a3c652f7ed2d63b228698cac0305fbd9714b51c8cce2199e5e6b5bc63dd5",
+          "audio": {
+            "numSamples": 58000,
+            "min": -0.3854641914367676,
+            "max": 0.6175185441970825,
+            "mean": 0.023048028349876404,
+            "std": 0.08129507303237915,
+            "rms": 0.08449912071228027,
+            "nodeSampleTolerance": 18000,
+            "browserSampleTolerance": 18000
+          }
+        }
+      ]
+    }
+  ]
+}

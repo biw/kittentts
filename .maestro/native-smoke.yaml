@@ -1,0 +1,13 @@
+appId: com.kittentts.smoke
+---
+- launchApp:
+    clearState: true
+- assertVisible: "KittenTTS React Native"
+- tapOn:
+    id: "run-smoke"
+- extendedWaitUntil:
+    visible: "React Native runtime: .*"
+    timeout: 600000
+- assertVisible:
+    id: "smoke-pass"
+- assertVisible: "React Native runtime: PASS"

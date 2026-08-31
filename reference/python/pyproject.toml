@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kittentts"
+version = "0.8.1"
+description = "Reference Python implementation used to generate KittenTTS parity fixtures"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache 2.0"}
+authors = [
+    {name = "KittenML"}
+]
+keywords = ["text-to-speech", "tts", "speech-synthesis", "neural-networks", "onnx"]
+classifiers = [
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "espeakng_loader",
+    "phonemizer-fork",
+    "onnxruntime",
+    "soundfile",
+    "numpy",
+    "huggingface_hub",
+]
+
+[project.urls]
+Homepage = "https://github.com/kittenml/kittentts"
+Repository = "https://github.com/kittenml/kittentts"
+Issues = "https://github.com/kittenml/kittentts/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kittentts*"]
+
+[tool.setuptools.package-data]
+kittentts = ["*.json", "*.txt", "*.onnx"]

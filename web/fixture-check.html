@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KittenTTS Browser Fixture Check</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        background: #f4f0e8;
+        color: #1f1b16;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(175, 118, 57, 0.18), transparent 28rem),
+          linear-gradient(180deg, #f4f0e8 0%, #e8e1d6 100%);
+      }
+      main {
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        letter-spacing: -0.04em;
+      }
+      p {
+        max-width: 48rem;
+        line-height: 1.5;
+      }
+      .meta {
+        display: grid;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+      }
+      .chip {
+        display: inline-block;
+        padding: 0.35rem 0.6rem;
+        border: 1px solid rgba(31, 27, 22, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.55);
+      }
+      pre {
+        overflow: auto;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: #11110f;
+        color: #f6f2ea;
+        box-shadow: 0 1.25rem 3rem rgba(38, 30, 19, 0.18);
+      }
+      a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Browser Fixture Check</h1>
+      <p>
+        This page runs one saved KittenTTS fixture chunk in the browser using
+        <code>onnxruntime-web</code>. It requests <code>webgpu</code> first and falls back to
+        <code>wasm</code> if needed. Use <code>?pipeline=fixture</code> for saved feeds,
+        <code>?pipeline=phonemizer-js</code> to rebuild browser phonemes and token IDs from the
+        fixture chunk text, or <code>?pipeline=full-js</code> to rebuild the full browser path
+        from raw case text before inference. Add <code>&amp;execution=wasm</code> to force the
+        simplest correctness path while debugging or automating the page.
+      </p>
+      <div class="meta">
+        <span class="chip" id="status">starting</span>
+        <span class="chip" id="case-label">loading fixture</span>
+        <span class="chip" id="pipeline-label">selecting pipeline</span>
+        <span class="chip" id="transport-label">selecting transport</span>
+        <span class="chip" id="provider-label">selecting execution provider</span>
+      </div>
+      <pre id="result">Loading…</pre>
+      <p>
+        Quick links:
+        <a href="/web/fixture-check.html?pipeline=fixture">fixture mode</a>
+        ·
+        <a href="/web/fixture-check.html?pipeline=phonemizer-js">browser phonemizer mode</a>
+        ·
+        <a href="/web/fixture-check.html?pipeline=full-js">full browser pipeline mode</a>
+        ·
+        <a href="/web/fixture-check.html?pipeline=full-js&amp;transport=worker">worker full pipeline mode</a>
+      </p>
+      <p>
+        Reference audio files live in
+        <a href="/.context/reference-fixtures/audio/">/.context/reference-fixtures/audio/</a>.
+      </p>
+    </main>
+    <script type="module" src="/web/fixture-check.mjs"></script>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "abbreviations",
+      "text": "Dr. Rivera and Prof. Smith reviewed Fig. 2 on Jan. 5.",
+      "clean_text": true
+    },
+    {
+      "id": "currency",
+      "text": "$1,250.00, EUR 20, \u00a39.99, \u00a585K, and \u20b91.2M.",
+      "clean_text": true
+    },
+    {
+      "id": "percent-and-ordinals",
+      "text": "The 1st group gained -2.5%, the 22nd gained 10%, and the 103rd stayed flat.",
+      "clean_text": true
+    },
+    {
+      "id": "times",
+      "text": "Meet at 12:00pm, retry at 9:05 AM, and stop at 23:59:30.",
+      "clean_text": true
+    },
+    {
+      "id": "scientific-units",
+      "text": "The 6.022E23 sample measured 2.5kg at 3GHz for 25ms.",
+      "clean_text": true
+    },
+    {
+      "id": "fractions",
+      "text": "Use 1/2, 3/4, 2/3, 7/8, and leave 1/0 unchanged.",
+      "clean_text": true
+    },
+    {
+      "id": "ranges-and-versions",
+      "text": "Python-3.12 supports versions 1.2.3 across pages 31-35.",
+      "clean_text": true
+    },
+    {
+      "id": "phones-and-ip",
+      "text": "Call 1-800-555-0199 or 555-0198 from 192.168.0.1.",
+      "clean_text": true
+    },
+    {
+      "id": "decades",
+      "text": "Music from the 80s, 1990s, and 2020s changed quickly.",
+      "clean_text": true
+    },
+    {
+      "id": "contractions",
+      "text": "I can't, won't, and shouldn't say it's impossible; let's try.",
+      "clean_text": true
+    },
+    {
+      "id": "leading-decimals",
+      "text": ".5 plus -.25 equals .25.",
+      "clean_text": true
+    },
+    {
+      "id": "scale-suffixes",
+      "text": "The service handled 1.5K requests, 340M tokens, and 2B events.",
+      "clean_text": true
+    },
+    {
+      "id": "html-url-email",
+      "text": "<p>Email hello@example.com or visit https://example.com/a?q=1.</p>",
+      "clean_text": true
+    },
+    {
+      "id": "unicode-composition",
+      "text": "Cafe\u0301, nai\u0308ve, and coo\u0308perate.",
+      "clean_text": true
+    },
+    {
+      "id": "smart-punctuation",
+      "text": "\u201cWait\u2014really?\u201d She paused\u2026 then answered.",
+      "clean_text": true
+    },
+    {
+      "id": "emoji",
+      "text": "Hello \ud83d\udc4b world \ud83c\udf0d! Family: \ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66.",
+      "clean_text": true
+    },
+    {
+      "id": "latin-diacritics",
+      "text": "Caf\u00e9 d\u00e9j\u00e0 vu in S\u00e3o Paulo; a na\u00efve fa\u00e7ade.",
+      "clean_text": true
+    },
+    {
+      "id": "greek",
+      "text": "\u039a\u03b1\u03bb\u03b7\u03bc\u03ad\u03c1\u03b1 \u03ba\u03cc\u03c3\u03bc\u03b5. Version 2.4.",
+      "clean_text": true
+    },
+    {
+      "id": "cyrillic",
+      "text": "\u041f\u0440\u0438\u0432\u0435\u0442, \u043c\u0438\u0440! 2026.",
+      "clean_text": true
+    },
+    {
+      "id": "arabic",
+      "text": "\u0645\u0631\u062d\u0628\u0627 \u0628\u0627\u0644\u0639\u0627\u0644\u0645. 42.",
+      "clean_text": true
+    },
+    {
+      "id": "devanagari",
+      "text": "\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e\u0964 12.",
+      "clean_text": true
+    },
+    {
+      "id": "japanese",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\u3002 3.14.",
+      "clean_text": true
+    },
+    {
+      "id": "chinese",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\u3002 100%.",
+      "clean_text": true
+    },
+    {
+      "id": "korean",
+      "text": "\uc548\ub155\ud558\uc138\uc694 \uc138\uacc4. 5km.",
+      "clean_text": true
+    },
+    {
+      "id": "whitespace",
+      "text": "  Multiple\\tspaces\\nlines\\r\\nremain   ordered.  ",
+      "clean_text": true
+    },
+    {
+      "id": "abbreviation-boundaries",
+      "text": "Dr. Smith arrived at 3.14 p.m. Tomorrow starts at 8:00 a.m.",
+      "clean_text": false
+    },
+    {
+      "id": "embedded-abbreviation",
+      "text": "Email before ten thirtya.m. tomorrow.",
+      "clean_text": false
+    },
+    {
+      "id": "many-sentences",
+      "text": "One. Two! Three? Four. Five! Six? Seven. Eight! Nine? Ten.",
+      "clean_text": false
+    },
+    {
+      "id": "long-form",
+      "text": "This paragraph intentionally contains enough words to cross a conservative test boundary while preserving every phrase in order and ensuring that sentence-aware splitting remains deterministic even when several clauses, commas, numbers like 123, and abbreviations such as Dr. appear together. A second sentence verifies that the next boundary remains independent.",
+      "clean_text": true
+    },
+    {
+      "id": "no-terminal-punctuation",
+      "text": "A final clause without terminal punctuation",
+      "clean_text": false
+    },
+    {
+      "id": "punctuation-only",
+      "text": "... !!! ???",
+      "clean_text": false
+    },
+    {
+      "id": "mixed-identifiers",
+      "text": "Build XT-2.5, IPv6, SHA-256, and v1.4.2 passed.",
+      "clean_text": true
+    },
+    {
+      "id": "zero-values",
+      "text": "$0.00, 0%, 0kg, 0/2, and 00:00.",
+      "clean_text": true
+    },
+    {
+      "id": "large-supported-number",
+      "text": "999,999,999,999 items remain.",
+      "clean_text": true
+    },
+    {
+      "id": "raw-unicode",
+      "text": "\u00c9l\u00e8ve \ud83d\udc4b \u4e16\u754c.",
+      "clean_text": false
+    }
+  ]
+}

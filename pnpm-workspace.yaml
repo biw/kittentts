@@ -1,0 +1,13 @@
+packages:
+  - "."
+
+autoInstallPeers: false
+
+allowBuilds:
+  esbuild: true
+  onnxruntime-node: true
+  protobufjs: true
+
+overrides:
+  adm-zip: 0.6.0
+  protobufjs: 7.6.5

@@ -1,0 +1,6 @@
+espeakng_loader
+phonemizer-fork
+onnxruntime
+soundfile
+numpy
+huggingface_hub
