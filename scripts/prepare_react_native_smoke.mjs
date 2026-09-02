@@ -29,7 +29,7 @@ async function main() {
 
   await run(
     "pnpm",
-    ["--ignore-workspace", "--config.auto-install-peers=false", "install", "--frozen-lockfile"],
+    ["install", "--frozen-lockfile"],
     appRoot,
   );
   await fs.rm(installedPackage, { recursive: true, force: true });
