@@ -12,6 +12,7 @@ on:
       - "scripts/bootstrap_react_native_smoke_assets.ts"
       - "scripts/install_maestro.sh"
       - "scripts/prepare_react_native_smoke.mjs"
+      - "scripts/run_android_smoke.sh"
       - "scripts/serve_react_native_smoke_assets.mjs"
       - "scripts/verify_react_native_smoke_artifacts.ts"
       - "src/**"
@@ -29,6 +30,7 @@ on:
       - "scripts/bootstrap_react_native_smoke_assets.ts"
       - "scripts/install_maestro.sh"
       - "scripts/prepare_react_native_smoke.mjs"
+      - "scripts/run_android_smoke.sh"
       - "scripts/serve_react_native_smoke_assets.mjs"
       - "scripts/verify_react_native_smoke_artifacts.ts"
       - "src/**"
@@ -240,35 +242,7 @@ jobs:
           arch: x86_64
           profile: pixel_6
           disable-animations: true
-          script: |
-            mkdir -p .context/native-artifacts/android
-            pnpm native:smoke:serve > .context/native-artifacts/android/asset-server.log 2>&1 &
-            server_pid=$!
-            trap 'kill "${server_pid}" 2>/dev/null || true' EXIT
-            for attempt in {1..30}; do
-              if curl --fail --silent http://127.0.0.1:9123/manifest.json >/dev/null; then break; fi
-              sleep 1
-            done
-            curl --fail --silent http://127.0.0.1:9123/manifest.json >/dev/null
-            adb install -r tests-native/react-native-smoke/android/app/build/outputs/apk/release/app-release.apk
-            adb shell run-as com.kittentts.smoke true
-            set +e
-            maestro test .maestro/native-smoke.yaml 2>&1 | tee .context/native-artifacts/android/maestro.log
-            smoke_status=${PIPESTATUS[0]}
-            set -e
-            adb exec-out run-as com.kittentts.smoke cat files/native-smoke-result.json \
-              > .context/native-artifacts/android/native-smoke-result.json 2>/dev/null || true
-            adb exec-out run-as com.kittentts.smoke cat files/native-smoke.wav \
-              > .context/native-artifacts/android/native-smoke.wav 2>/dev/null || true
-            adb exec-out screencap -p > .context/native-artifacts/android/final.png || true
-            adb logcat -d > .context/native-artifacts/android/device.log || true
-            if [[ "${smoke_status}" -ne 0 ]]; then
-              exit "${smoke_status}"
-            fi
-            pnpm exec tsx scripts/verify_react_native_smoke_artifacts.ts \
-              android \
-              .context/native-artifacts/android/native-smoke-result.json \
-              .context/native-artifacts/android/native-smoke.wav
+          script: bash scripts/run_android_smoke.sh
 
       - name: Upload Android evidence
         if: always()
